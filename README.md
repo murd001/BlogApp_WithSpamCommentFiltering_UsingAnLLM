@@ -6,5 +6,7 @@ when creating a post with bad language you get
 
 The llm used was mistral being hosted on lm-studio
 
-![lm-studio]
+![lm-studio](https://github.com/murd001/BlogApp_WithSpamCommentFiltering_UsingAnLLM/blob/main/ScreenShots/lmstudio.png?raw=true)
+
+
 
