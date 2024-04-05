@@ -1,0 +1,59 @@
+id,title,content
+2,SRYT,"We've got some pre-written CSS for this tutorial so we can stay focused on React Router. Feel free to judge it harshly or write your own 😅 (We did things we normally wouldn't in CSS so that the markup in this tutorial could stay as minimal as possible.)
+
+👉 Copy/Paste the tutorial CSS found here into src/index.css
+
+This tutorial will be creating, reading, searching, updating, and deleting data. A typical web app would probably be talking to an API on your web server, but we're going to use browser storage and fake some network latency to keep this focused. None of this code is relevant to React Router, so just go ahead and copy/paste it all.
+
+👉 Copy/Paste the tutorial data module found here into src/contacts.js
+
+All you need in the src folder are contacts.js, main.jsx, and index.css. You can delete anything else (like App.js and assets, etc.).
+
+👉 Delete unused files in src/ so all you have left are these:
+"
+3,SOMN SOMN,"
+If the images are not being displayed on the home page and post page, it could be due to several reasons. Here are a few things to check:
+
+Check File Paths: Ensure that the file paths specified in your HTML templates (index.html and post.html) are correct and pointing to the correct location where the images are stored.
+
+Static Files Configuration: Ensure that your Flask application is properly configured to serve static files. In your Flask application, make sure you have configured the static folder correctly and that it includes the uploads folder where the images are stored.
+
+Check Uploaded Images: Ensure that the images are being uploaded correctly to the uploads folder. Check if the uploaded images are saved with the correct file names and extensions.
+
+Template Rendering: Double-check your template files (index.html and post.html) to ensure that they are correctly referencing the image paths. You should use the url_for function to generate URLs for the static files, including images.
+
+Here's an example of how you can modify your tem"
+4,Attachment resume,"1. Check the data you receive from the API to make sure that it contains an array of posts. You may need to modify the way you fetch the data or adjust the URL you use to access the API.
+2. If the data is in the expected format, check your code where you try to use `map` function. Make sure that you are using it correctly and that it is being called on an array of posts.
+3. If you are still having issues, you may want to try adding error handling to your code to catch any errors that occur when using `map` function. This can help you identify the root cause of the issue and fix it accordingly.
+4. Finally, make sure that you have an error boundary in place in your React app. This can help you handle any errors that occur and provide a better user experience for your users."
+5,There Was a Light at the End,"In the tapestry of life, woven with threads of hope and despair, there are moments when the darkness seems overwhelming. It envelopes us, casting shadows on our dreams and obscuring the path forward. But amidst the gloom, there is often a flicker of light—a beacon of hope that guides us through the storm.
+
+Life is a journey filled with twists and turns, highs and lows. At times, it may feel like we are wandering in the depths of despair, lost in a maze of uncertainty. But even in our darkest moments, there is always a glimmer of light, however faint it may seem.
+
+Perhaps it's the kindness of a stranger, offering a helping hand when we need it most. Maybe it's the unwavering support of loved ones, standing by our side through thick and thin. Or it could be the realization that even in our struggles, we are not alone—that there are others who have walked this path before us, emerging stronger and more resilient in the face of adversity.
+
+There was a light at the end—a guiding star that illuminated the way forward. It whispered words of encouragement, urging us to persevere in the face of adversity. It reminded us that no matter how dark the night may seem, dawn will always break, bringing with it a new day filled with endless possibilities.
+
+In our journey through life, we encounter countless challenges and obstacles. We stumble and fall, facing setbacks that test our resolve and shake our faith. But it is during these moments of darkness that the light shines brightest, illuminating the path ahead and leading us towards brighter days.
+
+It's easy to lose sight of the light when we're consumed by despair. We may feel overwhelmed by the weight of our burdens, unable to see beyond the darkness that surrounds us. But if we pause for a moment and look within, we will find that the light has been there all along, waiting patiently for us to embrace its warmth and guidance.
+
+There was a light at the end—a glimmer of hope that pierced through the darkness, reminding us of our inherent strength and resilience. It gave us the courage to keep moving forward, even when the road ahead seemed impassable. And as we journeyed towards the light, we discovered that it wasn't just a destination—it was a state of being, a mindset that allowed us to find peace and fulfillment amidst life's chaos.
+
+So, as we navigate the complexities of life, let us remember that there is always a light at the end—a source of hope and inspiration that guides us through even the darkest of nights. And if we keep faith and trust in the journey, we will inevitably find ourselves basking in the warm glow of a brighter tomorrow.",5OIP.jpeg
+6,Nurturing Nature: A Call to Action for Environmental Conservation,"In the hustle and bustle of modern life, it's all too easy to forget the delicate balance that sustains our planet. From the towering trees of the Amazon rainforest to the bustling coral reefs of the ocean depths, our environment is teeming with life, each species playing a vital role in the intricate web of life. Yet, this precious ecosystem is under threat like never before.
+
+As we continue to consume resources at an alarming rate and pump pollutants into the air and water, we are tipping the scales of balance, pushing our planet towards the brink of catastrophe. Climate change, deforestation, pollution, and loss of biodiversity are just some of the pressing issues we face today. But amidst the gloom, there is hope—a glimmer of possibility that lies in our collective action to protect and preserve our environment.
+
+One of the most pressing environmental challenges of our time is climate change. The burning of fossil fuels for energy production, deforestation, and industrial activities have led to a dangerous increase in greenhouse gas emissions, resulting in rising global temperatures, melting ice caps, and extreme weather events. The urgency to transition to renewable energy sources, such as solar and wind power, has never been greater. By reducing our carbon footprint and embracing sustainable practices, we can mitigate the impacts of climate change and safeguard the future of our planet.
+
+Deforestation is another critical issue that demands our attention. Every year, millions of acres of forests are cleared for agricultural expansion, logging, and urban development, resulting in the loss of biodiversity and vital carbon sinks. Forests are not only home to countless species of plants and animals but also play a crucial role in regulating the Earth's climate. By supporting reforestation efforts and sustainable land management practices, we can protect and restore these invaluable ecosystems.
+
+Pollution is also a major threat to our environment, with plastic pollution choking our oceans, air pollution suffocating our cities, and toxic chemicals contaminating our soil and waterways. It's imperative that we reduce, reuse, and recycle our waste, minimize our use of single-use plastics, and support policies and initiatives aimed at curbing pollution at its source.
+
+Loss of biodiversity is yet another pressing concern. The rapid extinction of species due to habitat destruction, pollution, and climate change poses a significant threat to the stability of ecosystems worldwide. Protecting endangered species and their habitats, establishing protected areas, and promoting sustainable land use practices are essential steps in preserving biodiversity and ensuring the long-term health of our planet.
+
+But perhaps the most powerful tool in our arsenal is education and awareness. By raising awareness about the importance of environmental conservation and inspiring individuals to take action in their own lives, we can create a groundswell of support for positive change. Whether it's planting trees, reducing our energy consumption, or advocating for policies that protect the environment, each one of us has the power to make a difference.
+
+In the end, the fate of our planet rests in our hands. We have the knowledge, the technology, and the resources to address the environmental challenges we face. What we need now is the will to act—to come together as stewards of the Earth and work tirelessly to protect and preserve the precious gift of nature for future generations. The time to act is now, for there is no planet B. Let us rise to the challenge and nurture nature back to health, for the sake of our planet and all who call it home.",6.jpg

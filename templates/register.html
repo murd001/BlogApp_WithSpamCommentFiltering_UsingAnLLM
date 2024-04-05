@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Body styles */
+        body {
+            background-color: #1a1a1a; /* Dark background color */
+            color: #fff; /* Light text color */
+            font-family: Arial, sans-serif; /* Fallback font */
+            padding-top: 50px; /* Adjust padding for fixed navbar */
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 400px; /* Adjust container width */
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 20px; /* Adjust margin between form elements */
+        }
+
+        /* Form label styles */
+        label {
+            color: #ffcc00; /* Accent color for labels */
+        }
+
+        /* Form input styles */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            background-color: #333; /* Dark background color for inputs */
+            border: 1px solid #ffcc00; /* Accent color border */
+            color: #fff; /* Light text color */
+        }
+
+        /* Form input focus styles */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #e6b800; /* Darker accent color border on focus */
+        }
+
+        /* Button styles */
+        .btn {
+            background-color: #ffcc00; /* Accent color for buttons */
+            border-color: #ffcc00; /* Accent color for button borders */
+            color: #000; /* Dark text color */
+        }
+
+        /* Button hover styles */
+        .btn:hover {
+            background-color: #e6b800; /* Darker accent color on hover */
+            border-color: #e6b800; /* Darker accent color for button borders on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+        </form>
+    </div>
+</body>
+</html>

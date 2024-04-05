@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Body styles */
+        body {
+            background-color: #1a1a1a; /* Dark background color */
+            color: #fff; /* Light text color */
+            font-family: Arial, sans-serif; /* Fallback font */
+        }
+
+        /* Container styles */
+        .container {
+            padding-top: 50px;
+        }
+
+        /* Heading styles */
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 3rem; /* Larger font size */
+            color: #ffcc00; /* Accent color */
+        }
+
+        /* Form label styles */
+        label {
+            color: #ffcc00; /* Accent color for labels */
+        }
+
+        /* Form input styles */
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            border: 1px solid #ffcc00; /* Accent color border */
+        }
+
+        /* Form input focus styles */
+        input[type="text"]:focus,
+        input[type="file"]:focus,
+        textarea:focus {
+            border-color: #e6b800; /* Darker accent color border on focus */
+        }
+
+        /* Button styles */
+        .btn {
+            background-color: #ffcc00; /* Accent color for buttons */
+            border-color: #ffcc00; /* Accent color for button borders */
+            color: #000; /* Dark text color */
+        }
+
+        /* Button hover styles */
+        .btn:hover {
+            background-color: #e6b800; /* Darker accent color on hover */
+            border-color: #e6b800; /* Darker accent color for button borders on hover */
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            z-index: 1000; /* Ensure it appears above other content */
+            display: none; /* Initially hidden */
+        }
+
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff; /* Text color */
+        }
+    </style>
+    <script>
+        // Function to display or hide the alert message
+        function showAlert(message) {
+            var alertDiv = document.getElementById('alert-message');
+            alertDiv.textContent = message;
+            alertDiv.style.display = message ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Create New Post</h1>
+        <hr>
+        
+        {% if reason %}
+            <p>{{ reason }}</p>
+        {% endif %}
+        
+        <form method="POST" enctype="multipart/form-data" onsubmit="return checkLanguage()">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea class="form-control" id="content" name="content" rows="6" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">Upload Image (Optional)</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back Home</a>
+    </div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fa fa-spinner fa-spin fa-3x"></i> <!-- Use your preferred spinner icon -->
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to show loading overlay
+        function showLoading() {
+            document.getElementById('loading-overlay').style.display = 'block';
+        }
+
+        // Function to hide loading overlay
+        function hideLoading() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+
+        // Function to check language before form submission
+        function checkLanguage() {
+            showLoading(); // Show loading overlay
+            var content = document.getElementById('content').value;
+            var languageCheck = check_language(content);
+            if (languageCheck === 'BAD') {
+                hideLoading(); // Hide loading overlay
+                alert("Your post contains inappropriate language. Please review and edit your post.");
+                return false; // Prevent form submission
+            } else {
+                showAlert(""); // Hide any existing alert message
+                return true; // Allow form submission
+            }
+        }
+        
+        // Mock function for language check (replace with actual API call)
+        function check_language(content) {
+            return content.includes('inappropriate') ? 'BAD' : 'GOOD';
+        }
+    </script>
+    
+</body>
+</html>

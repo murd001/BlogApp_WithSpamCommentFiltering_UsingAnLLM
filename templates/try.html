@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Body styles */
+        body {
+            background-color: #1a1a1a; /* Dark background color */
+            color: #fff; /* Light text color */
+            font-family: Arial, sans-serif; /* Fallback font */
+            margin-bottom: 70px; /* Adjust margin for fixed button */
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #ffcc00; /* Yellow background color */
+        }
+
+        .navbar-brand {
+            color: #444; /* Navbar brand text color */
+        }
+
+        .navbar-nav .nav-link {
+            color: #444; /* Navbar link text color */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff; /* Navbar link text color on hover */
+        }
+
+
+        /* Container styles */
+        .container {
+            padding-top: 50px;
+        }
+
+        /* Heading styles */
+        h1 {
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 3rem; /* Larger font size */
+            color: #ffcc00; /* Accent color */
+        }
+
+        /* Form label styles */
+        label {
+            color: #ffcc00; /* Accent color for labels */
+        }
+
+        /* Form input styles */
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            border: 1px solid #ffcc00; /* Accent color border */
+        }
+
+        /* Form input focus styles */
+        input[type="text"]:focus,
+        input[type="file"]:focus,
+        textarea:focus {
+            border-color: #e6b800; /* Darker accent color border on focus */
+        }
+
+        /* Button styles */
+        .btn {
+            background-color: #ffcc00; /* Accent color for buttons */
+            border-color: #ffcc00; /* Accent color for button borders */
+            color: #000; /* Dark text color */
+        }
+
+        /* Button hover styles */
+        .btn:hover {
+            background-color: #e6b800; /* Darker accent color on hover */
+            border-color: #e6b800; /* Darker accent color for button borders on hover */
+        }
+
+        /* Styles for the "Create New Post" button */
+        .btn-create-post {
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Distance from bottom */
+            right: 20px; /* Distance from right */
+            width: 120px; /* Button width */
+            font-size: 14px; /* Smaller font size */
+        }
+
+        .card-title {
+            color: #ffcc00; /* Accent color for card titles */
+        }
+
+        /* Card text styles */
+        .card-text {
+            color: #e6e6e6; /* Slightly darker text color */
+        }
+
+        .card {
+            background-color: #444; /* Slightly darker background color */
+            border: none;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">Environmental Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('my_posts') }}">My Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Environmental Blog Posts</h1>
+    
+        <!-- Search Bar -->
+        <form action="/" method="GET" class="mb-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search blog titles..." name="search_query">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4" "text-color = #fff">
+                <div class="card h-100">
+                    {% if post.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + post.image) }}" class="card-img-top" alt="Post Image">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content[:500] }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('view_post', id=post.id) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <hr>
+    </div>
+    <a href="{{ url_for('create_post') }}" class="btn btn-success btn-create-post">Create New Post</a>
+    </body>
+</html>

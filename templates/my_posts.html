@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Posts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles for headings */
+        h1, h2 {
+            font-family: 'Pacifico', cursive; /* Handwritten font */
+            color: #ffcc00; /* Accent color for headings */
+        }
+    </style>
+</head>
+<body style="background-color: #1a1a1a;"> <!-- Added background color style -->
+    <div class="container">
+        <h1>My Blog Posts</h1>
+        <h2>Welcome, {{ user.username }}</h2>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100" style="height: 70px; overflow: hidden;">
+                    {% if post.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + post.image) }}" class="card-img-top" alt="Post Image">
+                    {% endif %}
+                    <div class="card-body" style="overflow: hidden;">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content[:500] }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('view_post', id=post.id) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Back home button -->
+        <a href="/" class="btn btn-primary">Back Home</a>
+        <!-- Create post button -->
+        <a href="{{ url_for('create_post') }}" class="btn btn-success">Create Post</a>
+    </div>
+</body>
+</html>
