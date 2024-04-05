@@ -15,6 +15,3 @@ THE LLM USED WAS MISTRAL BY BLOKE, HOSTED ON LMSTUDIO
 ![lm-studio](https://github.com/murd001/BlogApp_WithSpamCommentFiltering_UsingAnLLM/blob/main/ScreenShots/lmstudio.png?raw=true)
 
 
-
-COMENTS SECTION
-![COMMENTS SECTION](https://github.com/murd001/BlogApp_WithSpamCommentFiltering_UsingAnLLM/blob/main/ScreenShots/commentsSection.png?raw=true)
